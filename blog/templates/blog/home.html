@@ -10,19 +10,26 @@
 
     {% for post in posts %}
 
+    <a
+    href="{% url 'post_detail' post.id %}"
+    class="post-link"
+    >
 
-        <h2>
-            <a href="{% url 'post_detail' post.id %}">
-                {{ post.title }}
-            </a>
-        </h2>
+        <div class="post">
 
-        {% comment %} <p>{{ post.content }}</p> {% endcomment %}
+            <h2>{{ post.title }}</h2>
 
-        <small>
-            Created on: {{ post.created_at }}
-        </small>
+            <p>
+                {{ post.content|truncatewords:15 }}
+            </p>
 
+            <small>
+                {{ post.created_at }}
+            </small>
+
+        </div>
+
+    </a>
     {% endfor %}
 
 {% endblock %}

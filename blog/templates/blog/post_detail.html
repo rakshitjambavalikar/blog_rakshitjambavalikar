@@ -20,75 +20,65 @@
         Created on: {{ post.created_at }}
     </small>
 
-    <hr>
+<div class="comment-section">
 
-<h2>Comments</h2>
+    <h2>Comments...</h2>
 
+    {% for comment in post.comment_set.all %}
 
-<!-- Loop through related comments -->
-{% for comment in post.comment_set.all %}
+        <div class="comment">
 
-    <div>
+            <strong>
+                <u>{{ comment.author_name }}</u>
+            </strong>
 
-        <!-- Comment author -->
-        <strong>
-            {{ comment.author_name }}
-        </strong>
+            <br>
 
-        <br>
+            {{ comment.content }}
 
-        <!-- Comment text -->
-        {{ comment.content }}
+            <br>
 
-        <br>
+            <small>
+                {{ comment.created_at }}
+            </small>
 
-        <!-- Comment timestamp -->
-        <small>
-            {{ comment.created_at }}
-        </small>
+        </div>
 
-    </div>
+    {% empty %}
 
-    <hr>
+        <p>No comments yet.</p>
 
-{% empty %}
+    {% endfor %}
 
-    <!-- If no comments exist -->
-    <p>No comments yet.</p>
+</div>
 
-{% endfor %}
+<div class="comment-form">
 
-<h2>Add Comment</h2>
+    <h2>Add Comment</h2>
 
-<form method="POST">
+    <form method="POST">
 
-    <!-- Security token required by Django -->
-    {% csrf_token %}
+        {% csrf_token %}
 
-    <!-- Comment author input -->
-    <input
-        type="text"
-        name="author_name"
-        placeholder="Your name"
-        required
-    >
+        <input
+            type="text"
+            name="author_name"
+            placeholder="Your name"
+            required
+        >
 
-    <br><br>
+        <textarea
+            name="content"
+            placeholder="Write your thoughts..."
+            required
+        ></textarea>
 
-    <!-- Comment text area -->
-    <textarea
-        name="content"
-        placeholder="Write your comment"
-        required
-    ></textarea>
+        <button type="submit">
+            Post Comment
+        </button>
 
-    <br><br>
+    </form>
 
-    <!-- Submit button -->
-    <button type="submit">
-        Submit Comment
-    </button>
-
-</form>
+</div>
 
 {% endblock %}

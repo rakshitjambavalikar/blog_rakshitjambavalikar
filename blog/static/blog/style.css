@@ -1,30 +1,217 @@
-/* Page body styling */
+/* Reset default spacing */
 body {
 
-    /* Basic readable font */
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 
-    /* Space around page */
-    margin: 40px;
+    font-family: 'Montserrat', sans-serif;
+
+    line-height: 1.7;
+
+    background-color: rgb(255, 255, 255);
+    color: black;
+
+}
+
+
+/* Main page wrapper */
+.page-container {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* Navigation */
+nav {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 40px;
+
+    border-bottom: 1px solid black;
+
 }
 
 
 /* Navigation links */
 nav a {
 
-    /* Remove underline */
     text-decoration: none;
 
-    /* Add spacing */
-    margin-right: 15px;
+    color: black;
 
-    /* Slightly larger text */
-    font-size: 18px;
+    margin-right: 20px;
+
+}
+
+.nav:hover{
+     background-color: #eeebeb;
+
+    cursor: pointer;
+
+
+}
+
+/* Main content area */
+main {
+
+    width: 70%;
+
+    max-width: 800px;
+
+    margin: 40px auto;
+
 }
 
 
-/* Blog post titles */
-h1, h2 {
+/* Blog post cards */
+.post {
 
-    color: darkblue;
+    padding: 18px 20px;
+
+    margin: 0px;
+
+    transition: 0.2s ease;
+
+}
+
+.post:hover {
+
+    background-color: #eeebeb;
+
+    cursor: pointer;
+
+}
+.post-link {
+
+    text-decoration: none;
+
+    color: inherit;
+
+    display: block;
+
+}
+
+
+
+/* Links */
+a {
+
+    color: black;
+    text-decoration: none;
+}
+
+
+/* Footer */
+footer {
+
+    margin-top: auto;
+
+    padding: 10px 0;
+
+    border-top: 1px solid black;
+
+    text-align: center;
+
+    font-size: 14px;
+
+}
+
+
+/* Inputs */
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-top: 10px;
+
+    border: 1px solid black;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    background: white;
+
+    color: black;
+
+}
+
+
+/* Button */
+button {
+
+    margin-top: 15px;
+
+    padding: 10px 20px;
+
+    border: 1px solid black;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+}
+
+
+/* Hover effect */
+button:hover {
+
+    background: black;
+
+    color: white;
+
+}
+
+/* Comments section */
+.comment-section {
+
+    margin:1px;
+
+}
+
+
+/* Individual comment */
+.comment {
+
+    border: 1px solid black;
+
+    padding: 20px;
+
+    margin-bottom: 5px;
+
+}
+/* Add comment section */
+.comment-form {
+
+    margin-top: 50px;
+
+    border-top: 1px solid black;
+
+    padding-top: 30px;
+
+}
+
+
+/* Comment textarea */
+.comment-form textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
 }
