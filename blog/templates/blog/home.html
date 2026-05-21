@@ -8,11 +8,8 @@
 
 {% block content %}
 
-    <h1>All Blog Posts</h1>
-
     {% for post in posts %}
 
-        <hr>
 
         <h2>
             <a href="{% url 'post_detail' post.id %}">
