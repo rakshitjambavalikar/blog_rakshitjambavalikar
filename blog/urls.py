@@ -11,4 +11,5 @@ urlpatterns = [
     path('', views.home, name='home'),  # URL pattern for homepage
 
     path('post/<int:post_id>/', views.post_detail, name='post_detail'), 
+    path('contact/',views.contact,name='contact'),
 ]
