@@ -5,7 +5,7 @@ from .models import BlogPost,Comment
 #homepate view
 def home(request):
 
-    posts = BlogPost.objects.all() 
+    posts = BlogPost.objects.order_by('-created_at') 
 
     context = {
 
