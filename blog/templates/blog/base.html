@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link
+    rel="stylesheet"
+    href="{% static 'blog/style.css' %}"
+    >
+    <!-- Dynamic page title -->
+    <title>
+        {% block title %}
+            My Blog
+        {% endblock %}
+    </title>
+    
+</head>
+<body>
+
+    <!-- Shared navigation -->
+    <nav>
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+        <a href="#">
+            Contact
+        </a>
+        {% comment %} <a href="#">
+            Music
+        </a>
+       <a href="#">Gallery</a> {% endcomment %}
+    </nav>
+
+    <hr>
+
+    <!-- Page-specific content goes here -->
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+/* Page body styling */
+body {
+
+    /* Basic readable font */
+    font-family: Arial, sans-serif;
+
+    /* Space around page */
+    margin: 40px;
+}
+
+
+/* Navigation links */
+nav a {
+
+    /* Remove underline */
+    text-decoration: none;
+
+    /* Add spacing */
+    margin-right: 15px;
+
+    /* Slightly larger text */
+    font-size: 18px;
+}
+
+
+/* Blog post titles */
+h1, h2 {
+
+    color: darkblue;
+}
