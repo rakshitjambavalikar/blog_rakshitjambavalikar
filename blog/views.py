@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from .models import BlogPost
+from .models import BlogPost,Comment
 # Create your views here.
 #homepate view
 def home(request):
@@ -16,17 +16,28 @@ def home(request):
     return render(request, 'blog/home.html', context)
 
 #post detail view
+# post detail view
 def post_detail(request, post_id):
 
-    post =  post = get_object_or_404(
+    # Get the blog post by ID
+    post = get_object_or_404(
         BlogPost,
         id=post_id
     )
 
+    # Fetch all comments linked to this post
+    comments = Comment.objects.filter(post=post)
+
+    # Data sent to template
     context = {
 
-        'post': post
+        'post': post,
+        'comments': comments
 
     }
 
-    return render(request, 'blog/post_detail.html', context)
+    return render(
+        request,
+        'blog/post_detail.html',
+        context
+    )
