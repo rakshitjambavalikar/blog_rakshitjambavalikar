@@ -24,7 +24,17 @@
             </p>
 
             <small>
+
                 {{ post.created_at }}
+
+                {% if post.category %}
+                    <a href="{% url 'category_posts' post.category.slug %}">
+
+                        {{ post.category.name }}
+
+                    </a>            
+                {% endif %}
+
             </small>
 
         </div>

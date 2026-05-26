@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import BlogPost,Comment
+from .models import BlogPost,Comment, Category
 # Create your views here.
 #homepate view
 def home(request):
@@ -72,6 +72,34 @@ def post_detail(request, post_id):
         context
     )
 
+# Category page view
+def category_posts(request, slug):
+
+    # Fetch category using slug
+    category = get_object_or_404(
+        Category,
+        slug=slug
+    )
+
+    # Fetch all blog posts belonging to this category
+    posts = BlogPost.objects.filter(
+        category=category
+    ).order_by('-created_at')
+
+    # Send data to template
+    context = {
+
+        'category': category,
+        'posts': posts
+
+    }
+
+    return render(
+        request,
+        'blog/category_posts.html',
+        context
+    )
+
 # Contact page view
 def contact(request):
 
@@ -80,3 +108,4 @@ def contact(request):
         request,
         'blog/contact.html'
     )
+

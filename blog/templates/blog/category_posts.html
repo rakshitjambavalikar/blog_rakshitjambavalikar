@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}
+    {{ category.name }}
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>
+        Posts in "{{ category.name }}"
+    </h1>
+
+    {% for post in posts %}
+
+        <div class="post">
+
+            <h2>
+
+                <a href="{% url 'post_detail' post.id %}">
+
+                    {{ post.title }}
+
+                </a>
+
+            </h2>
+
+            <p>
+                {{ post.content|truncatewords:20 }}
+            </p>
+
+            <small>
+                {{ post.created_at }}
+            </small>
+
+        </div>
+
+    {% empty %}
+
+        <p>No posts in this category yet.</p>
+
+    {% endfor %}
+
+{% endblock %}
