@@ -28,3 +28,6 @@ media/
 
 # Migrations cache
 *.log
+
+#envfile
+.env
