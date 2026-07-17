@@ -20,7 +20,7 @@
             <h2>{{ post.title }}</h2>
 
             <p>
-                {{ post.content|truncatewords:15 }}
+                {{ post.content|striptags|truncatewords:15 }}            
             </p>
 
             <small>
